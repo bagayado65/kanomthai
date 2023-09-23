@@ -1,0 +1,28 @@
+button.likebtn{
+    border: none;
+    color: #5e76ff;
+    background: none;
+}
+button.componentbtn{
+    border: none;
+    color: #5e76ff;
+    background: none;
+}
+#like{
+    padding-right: 5px;
+}
+#comment{
+    padding-right: 2px;
+}
+button.likebtn:hover{
+    color: #da8995;
+}
+button.componentbtn:hover{
+    color: #a16e4c
+}
+button.likebtn:focus{
+    color: #da3951;
+}
+button.componentbtn:focus{
+    color: #a16339
+}

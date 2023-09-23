@@ -1,0 +1,121 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fefefe;
+    padding: 20px 80px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    padding-top: 10px;
+    position: relative;
+}
+#navbar li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-family: var(--mdb-body-font-family);
+    color: #000;
+}
+#navbar li a:hover{
+    color: #159f00;
+}
+#navbar li a:focus{
+    color: #fff;
+    background-color: #d0a772;
+    padding: 4px 20px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: #159f00;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+#navbar li a:focus::after{
+    height: 0;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #d0a772;
+}
+#navbar li a.selected{
+    color: #fff;
+    background-color: #d0a772;
+    padding: 4px 20px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+#navbar input{
+    background: rgba(255, 255, 255,0.8);
+}
+#navbar box-icon{
+    padding-left: 5px;
+}
+#navbar box-icon:hover{
+    color : #159f00;
+}
+.img-size{
+    width: 200px;
+    height: auto;
+}
+.img-size img{
+    width: 100%;
+    height: auto;
+}
+#Responsive_mb{
+    display: none;
+}
+#Responsive_mb i{
+    color:#000;
+    /* height: 30px; */
+    align-items: center;
+}
+
+@media screen and (max-width:769px){
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 90px;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background: #eeeeee;
+        box-shadow: 0 40px 60px rgb(0, 0, 0,0.1);
+        padding: 40px 0 0 10px;
+        transition: 0.3s ease-in-out;
+    }
+    #navbar.active{
+        right: 0px;
+    }
+    #navbar li{
+        margin-bottom: 25px;
+    }
+    #navbar li a:focus{
+        color: #fff;
+        background-color: #d0a772;
+        padding: 4px 50px;
+        border-radius: 5px;
+        transition: 0.3s ease-in-out;
+    }
+    #Responsive_mb{
+        display: block;
+    }
+    #Responsive_mb i {
+        font-size:24px;
+        cursor: pointer;
+    }
+}
