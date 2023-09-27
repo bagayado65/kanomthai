@@ -1,0 +1,12 @@
+{
+    "category_kanomthai" : [{"id": "defult" ,"name" : "ประเภทขนมไทย"},
+                            {"id": "1","name" : "ประเภทขนมไทย 1"},
+                            {"id": "2","name" : "ประเภทขนมไทย 2"},
+                            {"id": "3","name" : "ประเภทขนมไทย 3"},
+                            {"id": "4","name" : "ประเภทขนมไทย 4"},
+                            {"id": "5","name" : "ประเภทขนมไทย 5"}],
+    "profile_kanomthai" : [{"id" : "1","nick_name": "Meow","tag_name": "@bootdey","name":"Mark Lee Smith","timeline":"10 min ago","title":"Lorem ipsum dolor sit amet, consectetur adip.","text_conten":"","imgc":"me","imgsrc":"./jpgs/about-img.jpg"},
+                           {"id" : "2","nick_name": "Qia","tag_name": "@LeeCross","name":"Miracles Lee Cross","timeline":"10 min ago","title":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit consectetur deserunt illo esse distinctio.","text_conten":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam omnis nihil, aliquam est, voluptates officiis iure soluta alias vel odit, placeat reiciendis ut libero! Quas aliquid natus cumque quae repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, excepturi. Doloremque, reprehenderit! Quos in maiores, soluta doloremque molestiae reiciendis libero expedita assumenda fuga quae. Consectetur id molestias itaque facere? Hic!","imgc":"mei","imgsrc":"./jpgs/blog-img-04.jpg"},
+                           {"id" : "2","nick_name": "Qia","tag_name": "@LeeCross","name":"Miracles Lee Cross","timeline":"Hace 40 min","title":"Totam non adipisci hic! Possimus ducimus amet, dolores illo ipsum quos cum.","text_conten":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt fugit reprehenderit consectetur exercitationem odio, quam nobis? Officiis, similique, harum voluptate, facilis voluptas pariatur dolorum tempora sapiente eius maxime quaerat.","imgc":"meia","imgsrc":"./jpgs/about-img.jpg"}
+                ]
+}
