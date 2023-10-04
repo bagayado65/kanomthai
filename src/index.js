@@ -8,7 +8,8 @@ import Registers from "./pages/Registers";
 import RegistersTrue from "./pages/Registers_true";
 import NoPage from "./pages/NoPage";
 import Navbar from "./components/Navbar";
-// import ABC from "./pages/tested";
+import Profile from "./pages/Profile";
+import ABC from "./pages/tested";
 
 export default function App() {
   return (
@@ -21,7 +22,8 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="registers" element={<Registers />} />
           <Route path="registers/registers_true" element={<RegistersTrue />} />
-          {/* <Route path="tests" element={<ABC />} /> */}
+          <Route path="profile" element={<Profile />} />
+          <Route path="tests" element={<ABC />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

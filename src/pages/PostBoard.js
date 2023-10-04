@@ -1,10 +1,27 @@
 import React from "react";
 import './PostBoardStyle.css';
 import Avatar from 'react-avatar';
+import Popup from "reactjs-popup";
+import 'reactjs-popup/dist/index.css';
+import { Outlet, Link } from "react-router-dom";
+// import ReadMore from 'read-more-react';
+// import ReadMore from "../components/ReadMore";
 import data from './data/PostBoardData.json';
+// import data from './data/PostBoardDataTest.json';
 
 class PostBoard extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            showAndHide:false
+        };
+        this._hiddenDisplay = this._hiddenDisplay.bind(this);
+    }
+    _hiddenDisplay(){
+        this.setState({showAndHide:!this.state.showAndHide});
+    }
     render(){
+        const {showAndHide} = this.state;
         return(
             <div class='g-center'> {/*หน่ากรอกข้อมูลโพสต์*/}
                 <div class='i-center left'>
@@ -34,7 +51,18 @@ class PostBoard extends React.Component{
                                                 <h4 class='namespacs-nickname'>{pf.tag_name}</h4>
                                                 <span class='namespacs-name'>{pf.name}</span>
                                             </div>
-                                            <div class='button-profile'><button>...<i class="fas fa-caret-down" /></button></div>
+                                            <Popup trigger={<div class='button-profile'><button>...<i class="fas fa-caret-down" /></button></div>} position="bottom center">
+                                                <div className="popup-profile">
+                                                    <div className="popup-profile-btn">
+                                                        <Link id='stylelink' to="/profile">ข้อมูลบัญชี</Link>
+                                                    </div>
+                                                    <div className="popup-profile-btn">
+                                                        <button>ออกจากระบบ</button>
+                                                    </div>
+                                                    <Outlet />
+                                                </div>
+                                            </Popup>
+                                            {/* <div class='button-profile'><button>...<i class="fas fa-caret-down" /></button></div> */}
                                         </div>
                                     <hr></hr>
                                         <div class='conten-center'>
@@ -43,7 +71,10 @@ class PostBoard extends React.Component{
                                             <h3>{pf.title}</h3>
                                         </div>
                                     <div class='text-conten'>
-                                        <p>{pf.text_conten}</p>
+                                        {/* {console.log(pf.text_conten.toString().length)} */}
+                                       {pf.text_conten.map((lt,i) => (
+                                            <p key={i}>{lt}</p> 
+                                        ))}            
                                     </div>
                                         <div class='img-content'>
                                             {pf.imgc ? <img src={pf.imgsrc} alt={pf.imgc} /> : <p>maime</p> }
@@ -51,13 +82,36 @@ class PostBoard extends React.Component{
                                     <hr></hr>
                                         <div class='comment-conten'>
                                             <button class='likebtn'><i id='like' class='fas fa-heart'/>Like</button>
-                                            <button class='componentbtn'><i id='comment' class='fas fa-comment'/> Component</button>
+                                            <button class='componentbtn' onClick={this._hiddenDisplay}><i id='comment' class='fas fa-comment'/> Component</button>
                                         </div>
+                                        <hr></hr>
+                                        { showAndHide && (                                        
+                                        <div className="comment-use">
+                                            <div className="user-comment">
+                                            {/* <span className="text-comment"></span> 
+                                            <Avatar name={pf.commnet_User.name} round="180px" size="30"/>*/}
+                                            {console.log(Object.keys(pf.commnet_User).length)}
+                                            {Object.keys(pf.commnet_User).length < 0 ? (
+                                                <span>ไม่มีคอมเม้น</span>
+                                            ) : (<div>{pf.commnet_User.map((e) => {
+                                                return <div><Avatar name={e.name} round="180px" size="30"/><span className="text-comment">{e.comment}</span></div>
+                                            })}</div>)}
+                                            </div>
+                                        </div>)}
                                     </div>
                                 </div>
                 })}
                 </div>
-                <div class='i-center'>3</div>
+                <div class='i-center'>
+                    <div className="i-search">
+                        <input className="i-input-search" placeholder="Search"></input><i class='fas fa-search'></i>
+                    </div>
+                    {data.img_advert.map((imc) => {
+                        return <div className="i-advert">
+                                    <img src={imc.imgsrc} alt="A" />
+                               </div>
+                    })}
+                </div>
             </div>
         )
     }

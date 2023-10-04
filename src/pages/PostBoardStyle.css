@@ -5,7 +5,7 @@
     margin-top: 10px;
 }
 .i-center{
-    background-color: pink;
+    /* background-color: pink; */
     text-align: center;
     margin-left: 10px;
     margin-right: 10px;
@@ -20,9 +20,19 @@
     border-radius: 5px;
     border: solid 1.5 rgb(84, 84, 84);
 }
-/* option{
-
-} */
+.popup-profile{
+    border-radius: 5px;
+    text-align: center;
+}
+.popup-profile-btn button{
+    margin: 5px;
+    background: white;
+    width: 90%;
+    border: none;
+}
+.popup-profile-btn button:hover{
+    background: rgb(227, 227, 227);
+}
 .select-style:hover{
     border: solid 2px blue;
 }
@@ -37,6 +47,7 @@
     padding-bottom: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     min-height: 80px;
+    min-width: 320px;
 }
 .i-center.conten{
     background-color: white;
@@ -170,6 +181,10 @@ hr{
 .text-conten{
     padding: 20px;
 }
+.text-conten p{
+    margin: 0px;
+    padding: 0px;
+}
 .img-content img{
     width: 100%;
     height: 100%;
@@ -209,4 +224,64 @@ hr{
 }
 .componentbtn:focus{
     color: #a16339
+}
+.comment-use{
+    min-height: 200px;
+}
+.user-comment{
+    min-height: 180px;
+    /* top: 50%;
+    left: 50%; */
+    text-align: left;
+    padding: 2px;
+    margin: 20px;
+    border-radius: 10px;
+    background: #f1f1f1;
+}
+.text-comment{
+    padding-left: 10px;
+}
+.i-search{
+    background: white;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.i-input-search{
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.i-input-search::placeholder{
+    padding-left: 10px;
+}
+.i-advert{
+    margin-top: 20px;
+    max-width: 400px;
+    height: 400px;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.i-advert img{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+@media screen and (max-width:769px){
+    .g-center{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-self: flex-start;
+        z-index: -1;
+        margin-top: 10px;
+    }
+    .i-center.left{
+        background-color: white;
+        height: 80px;
+        border-radius: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        min-height: 80px;
+        margin-bottom: 20px;
+    }
 }
