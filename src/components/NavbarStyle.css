@@ -3,7 +3,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     background-color: #fefefe;
-    padding: 20px 80px;
+    padding: 10px 80px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 #navbar {
@@ -56,6 +56,17 @@ nav{
     border-radius: 5px;
     transition: 0.3s ease-in-out;
 }
+.notColor:focus{
+    color: none;
+    background-color: none;
+    padding: none;
+    border-radius: none;
+    transition: none;
+}
+.nav-btn-profile{
+    border: none;
+    background: none;
+}
 #navbar input{
     background: rgba(255, 255, 255,0.8);
 }
@@ -80,6 +91,9 @@ nav{
     color:#000;
     /* height: 30px; */
     align-items: center;
+}
+.onchangSubmit{
+    display: block;
 }
 
 @media screen and (max-width:769px){

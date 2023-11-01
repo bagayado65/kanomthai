@@ -20,7 +20,7 @@ class Registers extends React.Component{
               </div>
               <div class="pass">
                 <input type='checkbox' id='ss'/><label for='ss'>Remember me</label><a href='GG'>Forgot Password?</a></div>
-              <input type="submit" value="Login"/>
+              <input type="button" value="Login"/>
               <div class="signup_link"> 
                 Not a member? <a href="QA"><Link to='registers_true' >Register</Link></a>
               </div>
