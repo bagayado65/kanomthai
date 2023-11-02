@@ -1,13 +1,17 @@
 import './NavbarStyle.css';
 import React from 'react';
-// import Avatar from 'react-avatar';
+import Avatar from './Avatar';
 import { Outlet, Link } from "react-router-dom";
+import Popup from "reactjs-popup";
 import $ from "jquery";
 
-class Navbar extends React.Component {
-  constructor(){
-    super();
+class Navbar extends React.Component{
+  constructor(props){
+    super(props);
     this._stylelinkClick = this._stylelinkClick.bind(this);
+    this.state = {
+      defaultAvatar: './jpgs/defaultAvatar.jpg'
+    }
   }
   componentDidMount(){
     this._stylelinkClick();
@@ -33,8 +37,18 @@ class Navbar extends React.Component {
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/bulletin_board">กระดานข่าว</Link></li>
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/post_board">กระดานโพสต์</Link></li>
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/about">เกี่ยวกับ</Link></li>
-                    <li><Link id='stylelink' onClick={this._stylelinkClick} to="/registers">สมัครสมาชิก</Link></li>
-                    {/* <li><Link id='stylelink' onClick={this._stylelinkClick} to="/profile"></Link></li> */}
+                    <li className='onchangSubmit'><Link id='stylelink' onClick={this._stylelinkClick} to="/registers">สมัครสมาชิก</Link></li>
+                    <li className='notColor'>  <Popup trigger={<button className='nav-btn-profile'><Avatar imageUrl={this.state.defaultAvatar} size={50} /></button>} 
+                                                  position="bottom center">
+                                                <div className="popup-profile">
+                                                    <div className="popup-profile-btn">
+                                                        <Link id='stylelink' to="/profile"><button>ข้อมูลบัญชี</button></Link>
+                                                    </div>
+                                                    <div className="popup-profile-btn">
+                                                        <button>ออกจากระบบ</button>
+                                                    </div>
+                                                </div>
+                                                </Popup></li>
                     {/* <li><Link id='stylelink' onClick={this._stylelinkClick} to="/register_true"></Link></li> */}
              </ul>
             </div>

@@ -23,9 +23,9 @@ const Profile = () => {
           </div>
         
           <div class=" content-img">
-            <img src="images/8747741.jpg"  class="p-img-fluid" />
+            <img src="images/8747741.jpg"  class="p-img-fluid" alt="profile"/>
             <div class="p-padding-problem">
-              <a class="p-button fa fa-envelope"> 
+              <a class="p-button fa fa-envelope" href="i#"> 
               แจ้งปัญหา
               </a>
             </div>
