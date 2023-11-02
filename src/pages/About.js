@@ -11,7 +11,7 @@ class About extends React.Component{
             <div >
                 <div className="imgban">
                     <div className="topic-bg">
-                        <h1 className="topic"> หัวข้อ</h1>
+                        <h1 className="topic"> เกี่ยวกับ</h1>
                        
                     </div>
                 </div>
@@ -46,10 +46,7 @@ class About extends React.Component{
                         </div>
                     
                     </div>
-                    <div className="footer">
-                        ด้านล่าง
-                    </div>
-            
+              
              
                 
 

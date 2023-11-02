@@ -10,6 +10,7 @@ import NoPage from "./pages/NoPage";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import ABC from "./pages/tested";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   return (

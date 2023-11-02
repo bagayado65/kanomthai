@@ -35,10 +35,7 @@
     height:100% ;
 }
 
-.footer{
-    background-color: #343434 ;
-    height: 30%;
-}
+
 
 .grid-container {
     display: grid;
@@ -100,6 +97,7 @@
 	margin-top: 30px;
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 2%;
 
 }
 .inner-pt p{
