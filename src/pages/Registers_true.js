@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../components/NavbarStyle.css';
 import Swal from "sweetalert2";
-import $ from "jquery";
+// import $ from "jquery";
 
 
 function Registers_true({hideRegister}) {
@@ -57,7 +57,7 @@ function Registers_true({hideRegister}) {
           timer: 1500
         }).then((e)=>{
           axios.post("http://localhost:8800/addUsers", {email,username,password});
-          $('.onchangSubmit').hide();
+          // $('.onchangSubmit').hide();
           navigate("/");
         })
       } catch (err) {
@@ -72,38 +72,39 @@ function Registers_true({hideRegister}) {
   );
   return (
     <div>
-      <div class="center">
+      <div className="center">
         <h1>REGISTER</h1>
         <form method="post">
-          <div class="txt_field">
+          <div className="txt_field">
             <input type="text" name="username" onChange={handleChangUser} required />
             <span></span>
             <label>Username</label>
           </div>
-          <div class="txt_field">
+          <div className="txt_field">
             <input type="text" name="emails" value={email} onChange={handleInputChange} className={isEmail ? '' : 'invalid'} required />
             <span></span>
             <label>Email</label>
           </div>
           {isEmail ? null : <p className="error">Invalid email address</p>}
-          <div class="txt_field">
-            <input type="password" name="password" value={password} onChange={handlePasswordChange} required />
+          <div className="txt_field">
+            <input type="password" name="password" value={password} onChange={handlePasswordChange} max="10" required />
             <span></span>
             <label>Password</label>
           </div>
-          <div class="txt_field">
+          <div className="txt_field">
             <input type="password" name="confirmpassword" value={confirmPassword} onChange={handleConfirmPasswordChange} required />
             <span></span>
             <label>Repeat password</label>
           </div>
           {passwordsMatch ? null : (<p className="error">Passwords do not match</p>)}
-          <div class="pass">
+          <div className="pass">
             <input type="checkbox" id="ss" />
-            <label for="ss">I have read and agree to the terms</label>
+            <label htmlFor="ss">I have read and agree to the terms</label>
           </div>
           <input type="button" id="btn" value="SIGN IN" onClick={handleClickConfirm} />
-          <div class="signup_link">
+          <div className="signup_link">
             {/* Not a member? <a href="QA">ฑegister</a> */}
+            <a href="../registers">Login</a>
           </div>
         </form>
       </div>

@@ -10,11 +10,12 @@ import NoPage from "./pages/NoPage";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import ABC from "./pages/tested";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import { AuthProvider } from './components/Auth-context';
 
 export default function App() {
   return (
-    <BrowserRouter>
+  <BrowserRouter>
+    <AuthProvider>
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<HomePage />} />
@@ -28,7 +29,8 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </AuthProvider>
+  </BrowserRouter>
   );
 }
 
