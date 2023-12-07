@@ -3,7 +3,6 @@ import React from 'react';
 import Avatar from './Avatar';
 import { Outlet, Link } from "react-router-dom";
 import Popup from "reactjs-popup";
-import Logout from '../pages/Logout';
 import $ from "jquery";
 
 class Navbar extends React.Component{
@@ -11,20 +10,11 @@ class Navbar extends React.Component{
     super(props);
     this._stylelinkClick = this._stylelinkClick.bind(this);
     this.state = {
-      defaultAvatar: './jpgs/defaultAvatar.jpg',
-      dispatch : { type: 'LOGOUT' }
-
+      defaultAvatar: './jpgs/defaultAvatar.jpg'
     }
   }
   componentDidMount(){
     this._stylelinkClick();
-    let data = sessionStorage.getItem("auth");
-    let cosv = JSON.parse(data);
-    if (cosv.user != null){
-      $('.onchangSubmit').hide();
-    }else{
-      $('.notColor').hide();
-    }
   }
   _stylelinkClick() {
     $("a").on('click', function(){
@@ -55,7 +45,7 @@ class Navbar extends React.Component{
                                                         <Link id='stylelink' to="/profile"><button>ข้อมูลบัญชี</button></Link>
                                                     </div>
                                                     <div className="popup-profile-btn">
-                                                        <Logout></Logout>
+                                                        <button>ออกจากระบบ</button>
                                                     </div>
                                                 </div>
                                                 </Popup></li>
