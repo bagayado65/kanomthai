@@ -47,7 +47,6 @@ class Navbar extends React.Component{
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/bulletin_board">กระดานข่าว</Link></li>
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/post_board">กระดานโพสต์</Link></li>
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/about">เกี่ยวกับ</Link></li>
-<<<<<<< Updated upstream
                     <li className='onchangSubmit'><Link id='stylelink' onClick={this._stylelinkClick} to="/registers">สมัครสมาชิก</Link></li>
                     <li className='notColor'>  <Popup trigger={<button className='nav-btn-profile'><Avatar imageUrl={this.state.defaultAvatar} size={50} /></button>} 
                                                   position="bottom center">
@@ -60,9 +59,6 @@ class Navbar extends React.Component{
                                                     </div>
                                                 </div>
                                                 </Popup></li>
-=======
-                    <li><Link id='stylelink' onClick={this._stylelinkClick} to="/registers">เข้าสู่ระบบ</Link></li>
->>>>>>> Stashed changes
                     {/* <li><Link id='stylelink' onClick={this._stylelinkClick} to="/register_true"></Link></li> */}
              </ul>
             </div>

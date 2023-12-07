@@ -35,7 +35,7 @@ const Profile = () => {
   };
   // console.log(data);
   // console.log(cosv.user.username);
-  console.log(data.filter((user) => user.username === cosv.user.username)[0].image);
+  console.log(data.filter((user) => user.username === cosv.user.username));
   useEffect(() => {
     // Fetch data from the backend when the component mounts
     fetch("http://localhost:8800/users")
@@ -70,13 +70,10 @@ const Profile = () => {
               <a className="p-button fa fa-envelope" href="i#">
                 แจ้งปัญหา
               </a>
-              <a class="p-button fa fa-envelope" href="i#"> 
-              แจ้งปัญหา
-              </a>
             </div>
           </div>
 
-          <div class=" content-img">
+          {/* <div class=" content-img">
             <img src="images/8747741.jpg"  class="p-img-fluid" alt="profile"/>
             <div class="btn-group-amind ">
               <a class="a-button fa fa-user" href="i#"> 
@@ -89,7 +86,7 @@ const Profile = () => {
               โพสต์ที่ไม่เหมาะสม
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="">
           {/* <form> */}

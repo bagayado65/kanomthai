@@ -15,8 +15,8 @@ button.componentbtn{
     padding-right: 2px;
 }
 button.likebtn:hover{  /* เอาเม้าไปชี้*/
-    color: #da8995;
-}
+    /* color: #da8995;
+} */
 button.componentbtn:hover{
     color: #bd855f
 }
@@ -25,21 +25,4 @@ button.likebtn:focus{  /* คลิกแล้วเปลี่ยนสี*/
 }
 button.componentbtn:focus{
     color: #a16339
-<<<<<<< Updated upstream
-} */
-=======
 }
-.post{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background: slateblue;
-    width: 500px;
-    height: 500px;
-}
-.post p{
-    text-align: center;
-
-}
->>>>>>> Stashed changes
