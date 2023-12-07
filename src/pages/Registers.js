@@ -6,7 +6,7 @@ class Registers extends React.Component{
     render(){
         return(
             <div class="center">
-            <h1>LOGIN</h1>
+            <h1>เข้าสู่ระบบ</h1>
             <form method="post">
               <div class="txt_field">
                 <input type="text" required/>

@@ -1,0 +1,103 @@
+.formbold-main-wrapper {
+    width: 800px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #d5eafc;
+   
+    padding: 48px;
+}
+
+.grid-container-P {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    justify-content: center;
+  }
+/* กล่องรายละเอียด*/
+textarea {
+    width: 600px;
+    height: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+
+  textarea:focus{
+    border: 3px solid #ddae71;
+  }
+  /* กล่องรายละเอียด*/
+
+  /*radio*/
+  .container-p {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container-p  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    /* padding-left: px; */
+    /* left: 0; */
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container-p :hover input ~ .checkmark {
+    background-color: #ddae71;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container-p  input:checked ~ .checkmark {
+    background-color: #ddae71;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container-p  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container-p  .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+
+  /*radio*/
+

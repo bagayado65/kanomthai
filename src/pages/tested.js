@@ -4,9 +4,12 @@ import './testedStyle.css';
 class tested extends React.Component{
     render(){
         return(
-            <div>
+            <div class='post'>
+                <p>meow</p>
+          
             <button class='likebtn'><i id='like' class='fas fa-heart'/>Like</button>
             <button class='componentbtn'><i id='comment' class='fas fa-comment'/> Component</button>
+           
             </div>
         )
     }

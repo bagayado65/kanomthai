@@ -114,3 +114,40 @@
     background-color: #129445;
 
 }
+
+/*Admin*/
+.btn-group-amind  {
+ /* Green */
+    /* border: 1px solid green; */
+    /* color: white; */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    
+  }
+
+  .a-button{
+    background-color: #e5e8ef; /* Green */
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: auto;
+    border: 2px solid #e5e8ef;
+   
+
+    width: 100%;
+    color: rgb(39, 50, 99);
+}
+
+.a-button:hover{
+    background-color: white;
+    color: #99794e;
+}
+   
+
