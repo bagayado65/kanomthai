@@ -9,6 +9,13 @@ import RegistersTrue from "./pages/Registers_true";
 import NoPage from "./pages/NoPage";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
+import BlogNews from "./pages/BlogNews";
+import BlogNews2 from "./pages/BlogNews2";
+import BlogNews3 from "./pages/BlogNews3";
+import BlogNews4 from "./pages/BlogNews4";
+import BlogNews5 from "./pages/BlogNews5";
+import BlogNews6 from "./pages/BlogNews6";
+import UserProblem from "./pages/UserProblem";
 import ABC from "./pages/tested";
 import { AuthProvider } from './components/Auth-context';
 
@@ -25,8 +32,16 @@ export default function App() {
           <Route path="registers" element={<Registers />} />
           <Route path="registers/registers_true" element={<RegistersTrue />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="tests" element={<ABC />} />
+          <Route path="blognews" element={<BlogNews/>} />
+          <Route path="blognews2" element={<BlogNews2/>} />
+          <Route path="blognews3" element={<BlogNews3/>} />
+          <Route path="blognews4" element={<BlogNews4/>} />
+          <Route path="blognews5" element={<BlogNews5/>} />
+          <Route path="blognews6" element={<BlogNews6/>} />
+          <Route path="blognews6" element={<BlogNews6/>} />
+          <Route path="userproblem" element={<UserProblem/>} />
           <Route path="*" element={<NoPage />} />
+         
         </Route>
       </Routes>
     </AuthProvider>

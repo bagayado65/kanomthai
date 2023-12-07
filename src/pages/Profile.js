@@ -70,6 +70,24 @@ const Profile = () => {
               <a className="p-button fa fa-envelope" href="i#">
                 แจ้งปัญหา
               </a>
+              <a class="p-button fa fa-envelope" href="i#"> 
+              แจ้งปัญหา
+              </a>
+            </div>
+          </div>
+
+          <div class=" content-img">
+            <img src="images/8747741.jpg"  class="p-img-fluid" alt="profile"/>
+            <div class="btn-group-amind ">
+              <a class="a-button fa fa-user" href="i#"> 
+              ข้อมูลส่วนตัว
+              </a>
+              <a class="a-button fa fa-exclamation-triangle" href="i#"> 
+              จัดการปัญหา
+              </a>
+              <a class="a-button fa fa-exclamation-circle" href="i#"> 
+              โพสต์ที่ไม่เหมาะสม
+              </a>
             </div>
           </div>
         </div>
