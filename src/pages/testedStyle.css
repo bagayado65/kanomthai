@@ -15,7 +15,7 @@ button.componentbtn:focus{
 }
 .top-title-admin{
     background-color: bisque;
-    height: 20%;
+    height: 10%;
     display: flex;
     flex-direction: row-reverse;
 }
