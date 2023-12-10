@@ -4,6 +4,7 @@ import Avatar from './Avatar';
 import { Outlet, Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import Logout from '../pages/Logout';
+import axios from 'axios';
 import $ from "jquery";
 
 class Navbar extends React.Component{
@@ -12,6 +13,10 @@ class Navbar extends React.Component{
     this._stylelinkClick = this._stylelinkClick.bind(this);
     this.state = {
       defaultAvatar: './jpgs/defaultAvatar.jpg',
+      host_url: "http://localhost:8800",
+      auth_id: null,
+      user_selected: [],
+      picture : null,
       dispatch : { type: 'LOGOUT' }
 
     }
@@ -20,6 +25,25 @@ class Navbar extends React.Component{
     this._stylelinkClick();
     let data = sessionStorage.getItem("auth");
     let cosv = JSON.parse(data);
+    try {
+      axios
+      .get(this.state.host_url + "/user/" + JSON.parse(sessionStorage.getItem("auth")).user.username)
+      .then((response) => {
+        // console.log("data didM :"+response);
+        this.setState({ user_selected: response.data });
+        // console.log(response.data[0].image.data)
+        const blob = new Blob([new Uint8Array(response.data[0].image.data)], { type: 'image/jpeg' });
+        const blobUrl = URL.createObjectURL(blob);
+        this.setState({ picture : blobUrl })
+        return () => URL.revokeObjectURL(blobUrl);
+        // document.queryselector("#myimage").src = blobData
+      })
+      .catch((error) => {
+        console.error("Error!! หาข้อมูลไม่ได้", error);
+      });
+    } catch (error) {
+      console.log("ยังไม่มีการ Login!");
+    }
     if (cosv.user != null){
       $('.onchangSubmit').hide();
     }else{
@@ -48,7 +72,7 @@ class Navbar extends React.Component{
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/post_board">กระดานโพสต์</Link></li>
                     <li><Link id='stylelink' onClick={this._stylelinkClick} to="/about">เกี่ยวกับ</Link></li>
                     <li className='onchangSubmit'><Link id='stylelink' onClick={this._stylelinkClick} to="/registers">สมัครสมาชิก</Link></li>
-                    <li className='notColor'>  <Popup trigger={<button className='nav-btn-profile'><Avatar imageUrl={this.state.defaultAvatar} size={50} /></button>} 
+                    <li className='notColor'>  <Popup trigger={<button className='nav-btn-profile'><Avatar imageUrl={this.state.picture ? this.state.picture : this.state.defaultAvatar} size={50} /></button>} 
                                                   position="bottom center">
                                                 <div className="popup-profile">
                                                     <div className="popup-profile-btn">

@@ -52,7 +52,7 @@ function Registers_true({hideRegister}) {
       try {
         Swal.fire({
           icon: 'success',
-          title: 'Your work has been saved',
+          title: 'บันทึกสำเร็จ!!',
           showConfirmButton: false,
           timer: 1500
         }).then((e)=>{

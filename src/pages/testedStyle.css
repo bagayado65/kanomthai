@@ -1,22 +1,4 @@
-/* button.likebtn{
-    border: none;
-    color: #b46b3a;
-    background: none;
-}
-button.componentbtn{
-    border: none;
-    color: #b46b3a;
-    background: none;
-}
-#like{
-    padding-right: 5px;
-}
-#comment{
-    padding-right: 2px;
-}
-button.likebtn:hover{  /* เอาเม้าไปชี้*/
-    /* color: #da8995;
-} */
+
 button.componentbtn:hover{
     color: #bd855f
 }
@@ -25,4 +7,15 @@ button.likebtn:focus{  /* คลิกแล้วเปลี่ยนสี*/
 }
 button.componentbtn:focus{
     color: #a16339
+}
+.Reserve-space{
+    background-color: gainsboro;
+    width: 1535px;
+    height: 650px;
+}
+.top-title-admin{
+    background-color: bisque;
+    height: 20%;
+    display: flex;
+    flex-direction: row-reverse;
 }

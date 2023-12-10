@@ -1,17 +1,18 @@
 import React from "react";
-import './testedStyle.css';
+// import axios from "axios";
+import "./testedStyle.css";
 
-class tested extends React.Component{
-    render(){
-        return(
-            <div class='post'>
-                <p>meow</p>
-          
-            <button class='likebtn'><i id='like' class='fas fa-heart'/>Like</button>
-            <button class='componentbtn'><i id='comment' class='fas fa-comment'/> Component</button>
-           
+class tested extends React.Component {
+   render(){
+    return(
+        <div className="Reserve-space">
+            <div className="top-title-admin">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
             </div>
-        )
-    }
+        </div>
+    )
+   }
 }
 export default tested;
