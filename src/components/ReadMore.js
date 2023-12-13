@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 
-const ReadMore = ({ text }) => {
-  const [isReadMore, setIsReadMore] = useState(false);
-  const maxLength = 100;
 
-  const toggleReadMore = () => {
-    setIsReadMore(!isReadMore);
+const ReadMore = ({ text, maxLength }) => {
+  const [isTruncated, setIsTruncated] = useState(true);
+
+  const toggleTruncate = () => {
+    setIsTruncated(!isTruncated);
   };
 
-  const truncatedText = text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+  const displayText = isTruncated ? text.slice(0, maxLength) : text;
 
   return (
-    <div className="read-more">
-      <p className={isReadMore ? 'expanded' : ''}>{isReadMore ? text : truncatedText}</p>
+    <div>
+      <p>{displayText}</p>
       {text.length > maxLength && (
-        <button onClick={toggleReadMore}>
-          {isReadMore ? 'Read Less' : 'Read More'}
+        <button onClick={toggleTruncate}>
+          {isTruncated ? 'Read more' : 'Read less'}
         </button>
       )}
     </div>

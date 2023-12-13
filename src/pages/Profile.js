@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import moment from "moment";
 import "./ProfileStyle.css";
+// import { format } from "date-fns";
 
 class Profile extends React.Component {
   constructor() {
@@ -11,6 +13,7 @@ class Profile extends React.Component {
       auth_id: JSON.parse(sessionStorage.getItem("auth")).user.username,
       user_selected: [],
       btn_edit: false,
+      isUser_id : null,
       isUsername : "",
       isFristname : "",
       isLastname : "",
@@ -18,6 +21,12 @@ class Profile extends React.Component {
       isBirthday : null,
       picture : null,
       isEmail : "",
+      cdn: 0,
+      maxCdn: 512,
+      box_model: false,
+      typeReport: "",
+      content: "",
+      pictureReport: null,
     };
   }
   componentDidMount() {
@@ -26,7 +35,7 @@ class Profile extends React.Component {
       .then((response) => {
         console.log("data didM :"+response);
         this.setState({ user_selected: response.data });
-        console.log(response.data[0].image.data)
+        console.log(response.data[0].image)
         const blob = new Blob([new Uint8Array(response.data[0].image.data)], { type: 'image/jpeg' });
         const blobUrl = URL.createObjectURL(blob);
         this.setState({ picture : blobUrl })
@@ -39,19 +48,112 @@ class Profile extends React.Component {
     console.log(this.state.user_selected);
   }
 
+    //trans to uservalue
+    trans_datas = () =>{
+      this.state.user_selected.map((e) => 
+      this.setState({
+          isUser_id : e.user_id,
+          isUsername : e.username,
+          isFristname : e.fristname,
+          isLastname : e.lastname,
+          isGender : e.gender,
+          isBirthday : e.birthday,
+          isEmail : e.email,
+      }));
+    }
+
+  //popup
+  model_check = () => {
+    this.setState({ box_model: !this.state.box_model });
+    this.trans_datas();
+    this.setState({ cdn : 0});
+  };
+  countLebgth = (event) => {
+    this.setState({
+      cdn: event.target.value.length,
+    });
+  };
+  sendReportProblem = (event) => {
+    console.log(event.target.id);
+    console.log(event.target.value);
+    let tag_id = event.target.id;
+    let value = event.target.value;
+    if( tag_id === "post" || tag_id === "private" || tag_id === "other"){
+      this.setState({ typeReport : value });
+    }else if(tag_id === "contentText"){
+      this.setState({ content : value });
+    }
+    console.log("typeReport :"+this.state.typeReport)
+    console.log("centent :"+this.state.content)
+    console.log("img :"+this.state.pictureReport)
+    console.log(this.state.isUser_id);
+  }
+  savePicture = (event) => {
+    const files = event.target.files[0];
+    this.setState({ pictureReport : files});
+    // const image = event.target.files[0];
+    // const formData = new FormData();
+    // formData.append('image',image);
+    // axios.post(this.state.host_url+"/abcsss",formData);
+  }
+  submitReportProblem = () => {
+      let user_id = this.state.isUser_id;
+      // let problem_dateTime = new Date();
+      
+      let dt = moment(Date.now()).format();
+      let problem = this.state.typeReport;
+      let problem_info = this.state.content;
+      let problem_status = 0;
+      let image = this.state.pictureReport;
+      const formData = new FormData();
+      formData.append('user_id',user_id);
+      formData.append('dt',dt);
+      formData.append('problem',problem);
+      formData.append('problem_info',problem_info);
+      formData.append('problem_status',problem_status);
+      formData.append('image',image);
+      console.log(image);
+      var trueInsert = false;
+      if (problem !== "" && problem_info === "" && image){
+        trueInsert = true;
+      }else if (problem !== "" && problem_info !== "" && image){
+        trueInsert = true;
+      }
+      else{
+        Swal.fire({
+          icon: 'error',
+          title: 'กรุณาใส่หัวข้อปัญหาด้วย!!',
+          showConfirmButton: false,
+          timer: 1000
+        }).then((respon) => console.log(respon))
+      }
+      if(trueInsert === true){
+        axios.post( this.state.host_url+"/ReportProblem",formData)
+        .then(
+          Swal.fire({
+            icon: 'success',
+            title: 'บันทึกสำเร็จ!!',
+            showConfirmButton: false,
+            timer: 1000
+          }).then((e)=>{
+            window.location.reload(true);
+          })
+        ).catch((e)=>
+          Swal.fire({
+            icon: 'error',
+            title: 'บันทึกไม่สำเร็จ!!',
+            showConfirmButton: false,
+            timer: 1000
+          }).then((respon) => console.log(respon))
+        )
+      }
+}
+
   showBtn = () => {
     this.setState({
       btn_edit: !this.state.btn_edit,
     });
-    this.state.user_selected.map((e) => 
-    this.setState({
-        isUsername : e.username,
-        isFristname : e.fristname,
-        isLastname : e.lastname,
-        isGender : e.gender,
-        isBirthday : e.birthday,
-        isEmail : e.email,
-    }));
+    this.trans_datas();
     console.log(this.state.picture);
     // console.log(this.state.user_selected[0].image);
     // this.setState({ picture :  new Buffer.from(this.state.user_selected[0].image).toString("base64")});
@@ -100,8 +202,8 @@ class Profile extends React.Component {
           showConfirmButton: false,
           timer: 1000
         }).then((e)=>{
-          window.location.reload(true);
           console.log(e);
+          window.location.reload(true);
         })
       )
     } catch (error) {
@@ -170,7 +272,7 @@ class Profile extends React.Component {
             </div>
             <div className="content-img">
               <img
-                src={this.state.picture}
+                src={this.state.picture ? this.state.picture : "images/8747741.jpg"}
                 id="myimage"
                 // className="p-img-fluid"
                 width="150"
@@ -181,9 +283,7 @@ class Profile extends React.Component {
               <input type="file" onChange={this.imgChangUpload} />
               </div>
               <div className="p-padding-problem">
-                <a className="p-button fa fa-envelope" href="qq">
-                  แจ้งปัญหา
-                </a>
+                <button className="p-button fa fa-envelope" onClick={this.model_check}>แจ้งปัญหา</button>
               </div>
             </div>
           </div>
@@ -238,6 +338,71 @@ class Profile extends React.Component {
               ) : null}
             </div>
           </div>
+        </div>
+        <div className="Reserve-sp">
+          {this.state.box_model === true && (
+            <div className="background-shadow">
+              <div className="Model-popup">
+                <i
+                  className="back-del fa-solid fa-xmark"
+                  onClick={this.model_check}
+                />
+                <div className="text-topin-Problem"> 
+                  <h2> แจ้งปัญหา</h2>
+                </div>
+                <div className="chang-format-center">
+                  <label>ชื่อผู้ใช้งาน : {this.state.isUsername}</label>
+                </div>
+                <div className="chang-format-center-radio ">
+                  <span className="red-point">*</span>
+                  <label>หัวข้อปัญหา ? </label>
+                  <br></br>
+                  <div className="radio-format">
+                    
+                    <input className="radio-paning"
+                      type="radio"
+                      id="post"
+                      name="problem_topic"
+                      value="post"
+                      onClick={this.sendReportProblem}
+                    ></input>
+                    <label htmlFor="post">โพสต์</label>
+                    <input className="radio-paning"
+                      type="radio"
+                      id="private"
+                      name="problem_topic"
+                      value="private"
+                      onClick={this.sendReportProblem}
+                    ></input>
+                    <label htmlFor="private">ข้อมูลส่วนตัว</label>
+                    <input className="radio-paning"
+                      type="radio"
+                      id="other"
+                      name="problem_topic"
+                      value="other"
+                      onClick={this.sendReportProblem}
+                    ></input>
+                    <label htmlFor="other">อื่นๆ</label>
+
+                  </div>
+                </div>
+                <div className="format-button-img">
+                    <span className="red-point">*</span>
+                   <input className="custom-file-input" id="foo" type='file' onChange={this.savePicture} />
+                </div>
+                <div className="box-message-format">
+                  <label>รายละเอียด</label>
+                  <textarea id="contentText" className="box-text" onChange={this.countLebgth} onKeyUp={this.sendReportProblem}></textarea>
+                  <p>{this.state.cdn} / {this.state.maxCdn}</p>
+                </div>
+                <div className="format-button" >
+                  <button className="button-problem" onClick={this.submitReportProblem}>
+                     <h4>ส่งปัญหา</h4>  
+                    </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );

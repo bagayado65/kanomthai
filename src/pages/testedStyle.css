@@ -1,13 +1,3 @@
-
-button.componentbtn:hover{
-    color: #bd855f
-}
-button.likebtn:focus{  /* คลิกแล้วเปลี่ยนสี*/
-    color: #da3951;
-}
-button.componentbtn:focus{
-    color: #a16339
-}
 .Reserve-space{
     background-color: gainsboro;
     width: 1535px;
@@ -16,6 +6,121 @@ button.componentbtn:focus{
 .top-title-admin{
     background-color: bisque;
     height: 10%;
-    display: flex;
-    flex-direction: row-reverse;
+    /* display: flex;
+    flex-direction: row-reverse; */
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background-shadow{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-shadow .Model-popup{
+    width: 600px;
+    height: 650px;
+    background-color: white;
+    border-radius: 1%;
+}
+.back-del{
+    width: 25px;
+    height: 25px;
+    border-radius: 0px 5px 0px 10px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    float: right;
+}
+.text-topin-Problem{
+    background-color: #ddae71;
+    border-radius: 5px 10px 5px 5px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.chang-format-center{
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+.chang-format-center-radio{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 4%;
+
+}
+.radio-format{
+    padding-left: 5%;
+}
+.radio-format-topin{
+    margin-left: 5%;
+
+}
+
+.format-button{
+    width: 100%;
+    text-align: center;
+}
+
+.button-problem{
+    width: 90%;
+    height: 45px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ddae71;
+    color: white;
+    
+}
+
+.button-problem:hover{
+    background-color: #ad8959;
+
+}
+
+.box-message-format{
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.format-button-img{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.box-text{
+    width: 100% ;
+}
+ .radio-paning{
+    padding-left: 5px;
+ }
+
+ input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #ddae71;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    height: 35px ;
+    
+    
+  }
+  input[type=file]::file-selector-button:hover {
+    background: #b48e5d;
+  }

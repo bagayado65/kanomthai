@@ -114,3 +114,150 @@
     background-color: #129445;
 
 }
+.Reserve-sp{
+    background-color: gainsboro;
+}
+.top-title-admin{
+    background-color: bisque;
+    height: 10%;
+    /* display: flex;
+    flex-direction: row-reverse; */
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background-shadow{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-shadow .Model-popup{
+    width: 600px;
+    height: 650px;
+    background-color: white;
+    border-radius: 1%;
+}
+.back-del{
+    width: 25px;
+    height: 25px;
+    border-radius: 0px 5px 0px 10px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    float: right;
+}
+.text-topin-Problem{
+    background-color: #ddae71;
+    border-radius: 5px 10px 5px 5px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.chang-format-center{
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+.chang-format-center-radio{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 4%;
+
+}
+.radio-format{
+    padding-left: 5%;
+}
+.radio-format-topin{
+    margin-left: 5%;
+
+}
+
+.format-button{
+    width: 100%;
+    text-align: center;
+}
+
+.button-problem{
+    width: 90%;
+    height: 45px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ddae71;
+    color: white;
+    
+}
+
+.button-problem:hover{
+    background-color: #ad8959;
+
+}
+
+.box-message-format{
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.format-button-img{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.box-text{
+    width: 100% ;
+}
+ .radio-paning{
+    padding-left: 5px;
+ }
+ .custom-file-input {
+    color: transparent;
+  }
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+ .custom-file-input::before{
+    content: 'เลือกไฟล์รูป';
+    color: #fff;
+    display: inline-block;
+    background: #ddae71;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+ }
+ input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #ddae71;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    height: 35px ;
+    
+    
+  }
+  .red-point{
+    color: red;
+    font-size: 22px;
+  }
+  input[type=file]::file-selector-button:hover {
+    background: #b48e5d;
+  }
