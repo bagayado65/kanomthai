@@ -18,16 +18,89 @@
 
 }
 
-.img-slider{
+.format-home-top{
     width: 100%;
-    height: 400px;
-    background-color: aqua;
+    height: 500px;
+   
+
 }
 
-.img-slider-home{
-    height: 400px;
-   
+.img-slider{
+    width: 100%;
+    height: 500px;
+    /* background-color: aqua; */
+    object-fit: cover;
+    /* -webkit-filter: brightness(20%);
+    filter:brightness(50%); */
+
+    /* text-align: center; */
 }
+
+
+
+.button-style-img{
+    background-color: #cfa671; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    top: 35%;
+    position: absolute;
+   
+    
+}
+.button-style-img:hover{
+    background-color: #bb9563;
+}
+.icon-arrow {
+    font-size: 50px;
+}
+
+.right-button-style-img{
+    background-color: #cfa671; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    top: 35%;
+    position: absolute;
+    margin-left: -95px;
+}
+.right-button-style-img:hover{
+    background-color: #bb9563;
+}
+
+.home-text-topin{
+    position: absolute;
+    text-align: center;
+    /* margin-right:50px ; */
+    margin-left: 38%;
+    /* margin-right: 50%; */
+    margin-top: 10%;
+    
+}
+
+.home-text-topin-size{
+   color: #ffffff;
+   font-weight: bold;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+   position: absolute;
+
+}
+
+.home-text-into-size{
+    color: #ffffff;
+    
+
+}
+
+
 
 
 
@@ -37,4 +110,192 @@
 
 /*  Slider */
 
+.format-home-about{
 
+    width: 100%;
+    height: 580px;
+    display: flex;
+    flex-direction: row;
+  
+}
+
+.home-about{
+   
+    width: 40%;
+    height: 50%;
+    margin-top: 50px;
+    margin-left:10% ;
+}
+.home-about-into{
+  
+    width: 60%;
+    margin-top: 50px;
+    margin-right:10% ;
+    height: 70%;
+}
+.home-about-img{
+    text-align: center;
+    padding-left: 15%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
+.home-about-box-shadow{
+    width: 90%;
+    box-shadow: -0.7rem -0.7rem #d0a772;
+}
+.home-about-inner-column{
+    
+    text-align: center;
+    padding-right: 15%;
+   
+}
+.home-about-inner-column h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 30px;
+	color: #010101;
+    padding: 50px 0px ;
+
+    
+}
+.home-about-inner-column h1 span{
+	color: #d0a772;
+}
+
+.home-about-inner-column p{
+	font-size: 18px;
+    padding: -10px;
+}
+.home-about-inner-column .btn-outline-new-white{
+	color: #d0a772;
+}
+.home-about-inner-column .btn-outline-new-white:hover{
+	color: #ffffff;
+}
+
+.button-home-about {
+    background-color: #ffffff; /* Green */
+    border: none;
+    color: #c28c46;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #ddae71;
+    border-radius: 5px;
+  }
+.button-home-about:hover {
+    background-color: #ddae71;
+    color: white;
+  }
+  
+  .format-home-like{
+    width: 100%;
+    height: 800px;
+    /* background-color: aqua; */
+  
+
+  }
+  .home-post-like{
+    /* background-color: rgb(144, 218, 115); */
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+
+  }
+  .text-canter-home{
+    text-align: center;
+  }
+  .all-post-like-home{
+    padding-top: 5%;
+
+  }
+
+  .home-topicNew-later{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.format-home-new{
+
+    width: 100%;
+    height: 580px;
+    display: flex;
+    flex-direction: row;
+  
+}
+
+.home-new{
+   
+    width: 40%;
+    height: 50%;
+    margin-top: 50px;
+    margin-left:10% ;
+}
+.home-new-into{
+  
+    width: 60%;
+    margin-top: 50px;
+    margin-right:10% ;
+    height: 70%;
+}
+.home-new-img{
+    text-align: center;
+    padding-left: 15%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
+.home-new-box-shadow{
+    width: 90%;
+    box-shadow: -0.7rem -0.7rem #d0a772;
+}
+.home-new-inner-column{
+    
+    text-align: center;
+    padding-right: 15%;
+   
+}
+.home-new-inner-column h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 30px;
+	color: #010101;
+    padding: 50px 0px ;
+
+    
+}
+
+.home-new-inner-column p{
+	font-size: 18px;
+    padding: -10px;
+}
+.home-new-inner-column .btn-outline-new-white{
+	color: #d0a772;
+}
+.home-new-inner-column .btn-outline-new-white:hover{
+	color: #ffffff;
+}
+
+.button-home-new {
+    background-color: #ffffff; /* Green */
+    border: none;
+    color: #c28c46;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #ddae71;
+    border-radius: 5px;
+  }
+.button-home-new:hover {
+    background-color: #ddae71;
+    color: white;
+  }
