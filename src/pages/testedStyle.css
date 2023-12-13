@@ -1,21 +1,187 @@
-
+/* 
 button.componentbtn:hover{
     color: #bd855f
 }
-button.likebtn:focus{  /* คลิกแล้วเปลี่ยนสี*/
+button.likebtn:focus{  
     color: #da3951;
 }
 button.componentbtn:focus{
     color: #a16339
 }
 .Reserve-space{
+    background-color: rgb(255, 255, 255);
+    height: 90vh;
+
+    top: 0;
+    left: 0;
+    color: rgb(36, 21, 21);
+    margin-top: 10px;
+    
+}
+.top-title-admin{
+    background-color:#d0a772;
+    height: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.top-content-admin{
+    background-color: #d0a772;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    position:relative ;
+}
+.top-content-admin-topin{
+    width: 80%;
+    padding-top: 50px;
+    text-align: center;
+    position:relative ;
+    
+    
+}
+.admin-img{
+    width:50%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
+.text-admin{
+    display: flex;
+    flex-direction: column;
+    position:absolute ;
+    bottom: 5px;
+    right: 5px;
+    margin-right: 40px;
+   
+
+}
+
+.border-img{
+    border-radius: 50%;
+}
+
+.content-admin{
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+
+}
+.content-admin-problem{
+    width: 25%;
+    background-color: #e9cba5;
+    display: flex;
+    flex-direction:column ;
+    
+}
+.content-admin-problem-table{
+    width: 80%;
+}
+
+.button-admin{
+    background-color: #e9cba5; 
+    border: none;
+    height: 20%;
+    text-align: left;
+}
+.button-admin:hover{
+    background-color: #ac987d;
+
+}
+.coloricon{
+    color: #cf1d38;
+}
+ */
+
+ .Reserve-space-report-comment{
     background-color: gainsboro;
     width: 1535px;
     height: 650px;
 }
-.top-title-admin{
-    background-color: bisque;
-    height: 20%;
+
+
+.background-shadow-report-comment{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
 }
+.background-shadow-report-comment .Model-popup{
+    width: 600px;
+    height: 300px;
+    background-color: white;
+    border-radius: 5%;
+}
+.back-del-report-comment{
+    width: 25px;
+    height: 25px;
+    border-radius: 0px 5px 0px 10px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 150px;
+    font-size: 17px;
+    font-weight: 600;
+    float: right;
+  
+}
+.text-topin-report-comment{
+    background-color: #ddae71;
+    border-radius: 5px 10px 5px 5px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.format-report-topic-comment{
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+    height: 50%;
+
+}
+.report-comment-option-style{
+    width: 90%;
+    height: 30%;
+    background-color: #e6bb7c;
+    border: none;
+    color: rgb(40, 44, 48);
+    margin-left: 5%;
+    border-radius: 15px;
+
+}
+
+.format-button-report-comment{
+    width: 100%;
+    text-align: center;
+}
+
+.button-report-comment{
+    width: 90%;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ddae71;
+    color: white;
+    margin-top:1% ;
+    
+}
+
+.button-report-comment:hover{
+    background-color: #ad8959;
+
+}
+
+
