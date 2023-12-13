@@ -104,7 +104,7 @@ function Registers_true({hideRegister}) {
           <input type="button" id="btn" value="SIGN IN" onClick={handleClickConfirm} />
           <div className="signup_link">
             {/* Not a member? <a href="QA">ฑegister</a> */}
-            <a href="../registers">Login</a>
+            <a href="../registers">back to Login</a>
           </div>
         </form>
       </div>

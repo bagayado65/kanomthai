@@ -56,7 +56,7 @@
     flex-direction: column;
 }
 .top-title{
-    min-height: 300px;
+    /* min-height: 140px; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-bottom: 30px;
 }
@@ -112,7 +112,7 @@ hr{
 .under-conten{
     width: 100%;
     height: 20%;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: left;
 }
 .btn-share{
@@ -121,6 +121,7 @@ hr{
     font-weight: bold;
     padding: 10px 24px 8px;
     border: none;
+    width: 90%;
     border-radius: 5px;
     color: white;
     margin-left: 5%;
@@ -164,7 +165,7 @@ hr{
     background: #f6f6f6;
 }
 .conten-center{
-    min-height: 400px;
+    /* min-height: 400px; */
     text-align: left;
 }
 .time-conten{
@@ -184,6 +185,8 @@ hr{
 .text-conten p{
     margin: 0px;
     padding: 0px;
+    max-width: 739px;
+    word-wrap: break-word;
 }
 .img-content img{
     width: 100%;
@@ -202,6 +205,7 @@ hr{
 }
 .componentbtn{
     border: none;
+    padding-left: 10px;
     color: #5e76ff;
     background: none;
 }
@@ -265,6 +269,178 @@ hr{
     height: 100%;
     padding: 20px;
 }
+/* popup */
+.Reserve-space-post{
+    background-color: gainsboro;
+}
+.top-title-admin-post{
+    background-color: bisque;
+    height: 10%;
+    /* display: flex;
+    flex-direction: row-reverse; */
+}
+.background-shadow-post{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-shadow-post .Model-popup{
+    width: 600px;
+    height: 650px;
+    background-color: white;
+    border-radius: 5%;
+}
+.back-del-post{
+    width: 25px;
+    height: 25px;
+    border-radius: 0px 5px 0px 10px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 150px;
+    font-size: 17px;
+    font-weight: 600;
+    float: right;
+  
+}
+.text-topin-post{
+    background-color: #ddae71;
+    border-radius: 5px 10px 5px 5px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.top-post{
+    /* background-color: aqua; */
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row ;
+    position:relative ;
+
+}
+
+.profile-post{
+    /* background-color: aqua; */
+    width: 20%;
+}
+.border-img-post{
+    border-radius: 50%;
+    margin-left: 20px;
+   
+}
+.profile-post-topic{
+    /* background-color: rgb(87, 121, 121); */
+    width: 80%;
+  
+}
+.profile-post-topic{
+    display: flex;
+    flex-direction: column;
+    position:absolute ;
+    bottom: 25px;
+    right: 5px;
+}
+.option-style{
+    width: 50%;
+    background-color: #ddae71;
+    border: none;
+    color: aliceblue;
+
+}
+
+.post-info-format{
+    /* background-color: blueviolet; */
+    width: 100%;
+    height: 20%;
+   
+}
+
+.topin-info{
+    margin-left: 5%;
+}
+
+.box-post-img{
+    /* background-color: cadetblue; */
+    width: 100%;
+    height: 40%;
+
+  
+}
+
+.format-img-button{
+    width: 100%;
+    text-align: center;
+
+}
+.box-button-img{
+    border-radius: 10px ;
+    width: 80%;
+    height: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border:none;
+    background-color:rgb(184, 152, 110) ;
+    margin-top: 2px;
+    
+}
+.box-button-img:hover{
+    background-color: rgb(218, 183, 137)  ;
+
+}
+
+.up-img-post{
+    background-color: rgb(203, 206, 206);
+    border:3px solid #ad8959;
+    border-radius: 10px ;
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    text-align: center;
+    
+}
+
+.format-icon-img{
+    padding-top: 20%;
+    padding-left: 50%;
+    
+}
+.box-text-post{
+    width: 95%;
+    height: 50%;
+}
+
+.format-button-post{
+    width: 100%;
+    text-align: center;
+}
+
+.button-post{
+    width: 90%;
+    height: 45px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ddae71;
+    color: white;
+    margin-top:5% ;
+    
+}
+
+.button-post:hover{
+    background-color: #ad8959;
+
+}
+
 @media screen and (max-width:769px){
     .g-center{
         display: flex;
@@ -283,5 +459,11 @@ hr{
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         min-height: 80px;
         margin-bottom: 20px;
+    }
+    .text-conten p{
+        margin: 0px;
+        padding: 0px;
+        max-width: 739px;
+        word-wrap: break-word;
     }
 }
