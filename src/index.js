@@ -15,6 +15,7 @@ import BlogNews3 from "./pages/BlogNews3";
 import BlogNews4 from "./pages/BlogNews4";
 import BlogNews5 from "./pages/BlogNews5";
 import BlogNews6 from "./pages/BlogNews6";
+import AdminPage from "./pages/AdminPage";
 import UserProblem from "./pages/UserProblem";
 import ABC from "./pages/tested";
 import { AuthProvider } from './components/Auth-context';
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="blognews6" element={<BlogNews6/>} />
           <Route path="abc" element={<ABC/>} />
           <Route path="userproblem" element={<UserProblem/>} />
+          <Route path="adminpage" element={<AdminPage/>} />
           <Route path="*" element={<NoPage />} />
          
         </Route>

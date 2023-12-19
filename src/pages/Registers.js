@@ -41,6 +41,7 @@ function Registers() {
             timer: 1500
           });
         }
+        
         window.location.reload(true);
 
         // Redirect or update state as needed
@@ -88,10 +89,4 @@ function Registers() {
     </div>
   );
 }
-// class Registers extends React.Component{
-//     render(){
-
-//     }
-// }
-
 export default Registers;
