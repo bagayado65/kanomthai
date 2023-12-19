@@ -83,22 +83,23 @@ class Navbar extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link
+              <Link
+                  id="stylelink"
+                  onClick={this._stylelinkClick}
+                  to="/post_board"
+                >
+                  กระดานโพสต์
+                </Link>              
+              </li>
+              <li>
+              <Link
                   id="stylelink"
                   onClick={this._stylelinkClick}
                   to="/bulletin_board"
                 >
                   กระดานข่าว
                 </Link>
-              </li>
-              <li>
-                <Link
-                  id="stylelink"
-                  onClick={this._stylelinkClick}
-                  to="/post_board"
-                >
-                  กระดานโพสต์
-                </Link>
+                
               </li>
               <li>
                 <Link id="stylelink" onClick={this._stylelinkClick} to="/about">

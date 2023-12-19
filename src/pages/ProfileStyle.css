@@ -261,3 +261,13 @@
   input[type=file]::file-selector-button:hover {
     background: #b48e5d;
   }
+
+  .font-text-profile{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+
+  }
+
+  .font-text-in-profile{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }

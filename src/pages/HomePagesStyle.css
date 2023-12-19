@@ -195,6 +195,7 @@
   .format-home-like{
     width: 100%;
     height: 800px;
+    margin-top: 5%;
     /* background-color: aqua; */
   
 
@@ -213,12 +214,19 @@
   }
   .all-post-like-home{
     padding-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: stretch;
+
+    
 
   }
 
   .home-topicNew-later{
     text-align: center;
     padding-top: 50px;
+    margin-top: 15%;
 }
 
 .format-home-new{
@@ -227,6 +235,7 @@
     height: 580px;
     display: flex;
     flex-direction: row;
+    /* margin-top: 20; */
   
 }
 
@@ -299,3 +308,46 @@
     background-color: #ddae71;
     color: white;
   }
+
+  .format-home-img{
+    background-size: cover;
+    /* min-height: 100%; */
+    min-width: auto; 
+    width: 100%; 
+    /* height: 50px; */
+    top: 0;
+    left: 0;
+
+    background-image:url(../../public/jpgs/qt-bg.jpg); 
+    z-index: -2;
+    padding: 100px 0 140px;
+   
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 0;
+    position: relative;
+    margin-top: 5%;
+  }
+
+  .img-post-populur{
+    width: 300px;
+    height: 300px;
+  }
+
+  .img-margin-top{
+    margin-top: 10%;
+  }
+
+  .btu-populur-post{
+background-color: #cfa671; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5%;
+  }
+  

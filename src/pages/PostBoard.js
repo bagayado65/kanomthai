@@ -385,9 +385,9 @@ class PostBoard extends React.Component {
                           รายงาน
                         </Link>
                       </div>
-                      {/* <div className="popup-profile-btn">
+                      <div className="popup-profile-btn">
                         <button>ออกจากระบบ</button>
-                      </div> */}
+                      </div>
                       <Outlet />
                     </div>
                   </Popup>

@@ -72,6 +72,9 @@ function Registers_true({hideRegister}) {
   );
   return (
     <div>
+       <div className="bg-regis">
+
+      </div>
       <div className="center">
         <h1>REGISTER</h1>
         <form method="post">

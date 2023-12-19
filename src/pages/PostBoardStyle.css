@@ -78,10 +78,10 @@
     padding: 10px 20px;
     background-color: white;
     border: none;
-    border-bottom: 2.5px solid #5383d1;
+    border-bottom: 2.5px solid #cfa671;
     font-size: 13px;
     font-weight: bold;
-    color:#5383d1;
+    color:#cfa671;
 }
 .btn-post:hover{
     background: #f6f6f6;
@@ -116,7 +116,7 @@ hr{
     text-align: left;
 }
 .btn-share{
-    background: #5383d1;
+    background: #cfa671;
     font-size: 12px;
     font-weight: bold;
     padding: 10px 24px 8px;
@@ -127,7 +127,7 @@ hr{
     margin-left: 5%;
 }
 .btn-share:hover{
-    background: #4166a1;
+    background: #bb9665;
 
 }
 .title-post{

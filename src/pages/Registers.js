@@ -59,35 +59,41 @@ function Registers() {
     }
   };
   return (
-    <div className="center">
-      <h1>LOGIN</h1>
-      <form method="post">
-        <div className="txt_field">
-          <input type="text"  value={username} onChange={(e) => setUsername(e.target.value)}  required />
-          <span></span>
-          <label>Username</label>
-        </div>
-        <div className="txt_field">
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <span></span>
-          <label>Password</label>
-        </div>
-        <div className="pass">
-          {/* <input type="checkbox" id="ss" /> */}
-          {/* <label htmlFor="ss">Remember me</label> */}
-          <a href="QQ">Forgot Password?</a>
-        </div>
-        <input type="button" onClick={handleLogin} value="Login"/>
+    <div>
+      <div className="bg-regis">
 
-        <div className="signup_link">
-          Not a member?{" "}
-            <Link to="registers_true">Register</Link>
-        </div>
-      </form>
-      <Outlet />
+      </div>
+      <div className="center">
+        <h1>LOGIN</h1>
+        <form method="post">
+          <div className="txt_field">
+            <input type="text"  value={username} onChange={(e) => setUsername(e.target.value)}  required />
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div className="txt_field">
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div className="pass">
+            {/* <input type="checkbox" id="ss" /> */}
+            {/* <label htmlFor="ss">Remember me</label> */}
+            <a href="QQ">Forgot Password?</a>
+          </div>
+          <input type="button" onClick={handleLogin} value="Login"/>
+
+          <div className="signup_link">
+            Not a member?{" "}
+              <Link to="registers_true">Register</Link>
+          </div>
+        </form>
+        <Outlet />
+      </div>
     </div>
   );
 }
+
 // class Registers extends React.Component{
 //     render(){
 

@@ -85,12 +85,45 @@ const HomePage = () => {
         </div>
       </div>
 
+      <div className="format-home-img">
+        
+
+      </div>
+
       <div className="format-home-like">
         <div className="home-post-like">
           <h2>สูตรขนมไทยยอดนิยม</h2>
           <h5>สูตรขนมไทยยอดนิยมจากกระดานโพสต์ของสมาชิกเว็บไซด์</h5>
+          
+         
+          <button className="btu-populur-post"> โพสต์ยอดนิยม </button>
+        
+        
+                  
           <div className="all-post-like-home">
-            โพสต์ยอดนิยม 6 อัน (เขียนไว้ให้ เพื่อเอาข้อมูลมาแทนตรงนี้)
+            
+            <div lassName=" img-margin-top" >
+              <img className="img-post-populur" src='./images/img-01.jpg' />
+            </div>
+            <div lassName=" img-margin-top" >
+              <img className="img-post-populur" src='./images/img-02.jpg' />
+            </div>
+            <div lassName=" img-margin-top">
+              <img className="img-post-populur" src='./images/img-03.jpg' />
+            </div>
+            <div className=" img-margin-top">
+              <img className="img-post-populur" src='./images/img-04.jpg' />
+            </div>
+
+            <div className=" img-margin-top">
+              <img className="img-post-populur" src='./images/img-07.jpg' />
+            </div>
+
+            <div className=" img-margin-top">
+              <img className="img-post-populur" src='./images/img-08.jpg' />
+            </div>
+
+
           </div>
         </div>
       </div>
