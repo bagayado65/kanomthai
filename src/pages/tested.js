@@ -1,85 +1,76 @@
-import React from "react";
+import React, { useRef } from "react";
 // import axios from "axios";
 import "./testedStyle.css";
 
 class tested extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        cdn: 0,
-        maxCdn: 512,
-        box_model: false,
-      };
-    }
-    componentDidCatch() {}
-    model_check = () => {
-      this.setState({ box_model: !this.state.box_model });
+  constructor() {
+    super();
+    this.state = {
+      cdn: 0,
+      maxCdn: 512,
+      box_model: false,
+      selectedFile: null, // Track the selected file
     };
-    countLebgth = (event) => {
-      this.setState({
-        cdn: event.target.value.length,
-      });
-    };
+
+    this.hiddenFileInput = React.createRef();
+  }
+
+  componentDidCatch() {}
+
+  model_check = () => {
+    this.setState({ box_model: !this.state.box_model });
+  };
+
+  countLebgth = (event) => {
+    this.setState({
+      cdn: event.target.value.length,
+    });
+  };
+
+  handleClick = (event) => {
+    this.hiddenFileInput.current.click();
+  };
+
+  handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+
+    // Update the state with the selected file
+    this.setState({ selectedFile: fileUploaded });
+
+    this.handleFile(fileUploaded);
+  };
+
+  handleFile = (file) => {
+    console.log('File Uploaded:', file);
+  };
+
     render() {
       return (
-        <div className="Reserve-space">
-          {/* <div className="top-title-admin">
-                  <div>{this.state.cdn} / {this.state.maxCdn}</div>
-                  <div><textarea type="text" onChange={this.countLebgth} maxlength="512" /></div>
-              </div> */}
+        <div className="Reserve-space-report-comment">
           <button onClick={this.model_check}> showpopup </button>
           {this.state.box_model === true && (
-            <div className="background-shadow">
+            <div className="background-shadow-report-comment">
               <div className="Model-popup">
                 <i
-                  className="back-del fa-solid fa-xmark"
+                  className="back-del-report-comment fa-solid fa-xmark"
                   onClick={this.model_check}
                 />
-                <div className="text-topin-Problem"> 
-                  <h2> แจ้งปัญหา</h2>
+                <div className="text-topin-report-comment "> 
+                  <h2>รายงานข้อความที่ไม่เหมาะสม</h2>
                 </div>
-                <div className="chang-format-center">
-                  <label>ชื่อผู้ใช้งาน : {this.props}</label>
+                <div className="format-report-topic-comment">
+                    <select className="report-comment-option-style" >
+                              <option value="">รายงาน</option>
+                              <option value="">ใช้ถ้อยคำหยาบคาย</option>
+                              <option value="">มีการใช้ถ้อยคำเหยียดเพศ และ เหยียดเชื้อชาติ ศาสาน</option>
+                              <option value="">มีการใช้ถ่อยคำที่รุนแรง</option>  
+                        </select>
+
                 </div>
-                <div className="chang-format-center-radio ">
-                  <label>หัวข้อปัญหา ?</label>
-                  <br></br>
-                  <div className="radio-format">
-                    
-                    <input className="radio-paning"
-                      type="radio"
-                      id="post"
-                      name="problem_topic"
-                      value="post"
-                    ></input>
-                    <label htmlFor="post">โพสต์</label>
-                    <input className="radio-paning"
-                      type="radio"
-                      id="private"
-                      name="problem_topic"
-                      value="private"
-                    ></input>
-                    <label htmlFor="private">ข้อมูลส่วนตัว</label>
-                    <input className="radio-paning"
-                      type="radio"
-                      id="other"
-                      name="problem_topic"
-                      value="other"
-                    ></input>
-                    <label htmlFor="other">อื่นๆ</label>
-                  </div>
-                </div>
-                <div className="format-button-img">
-                   <input  type='file'/> 
-                </div>
-                <div className="box-message-format">
-                  <label>รายละเอียด</label>
-                  <textarea className="box-text"></textarea>
-                  <p>0 / 512</p>
-                </div>
-                <div className="format-button" >
-                  <button className="button-problem">
-                     <h4>ส่งปัญหา</h4>
+               
+                <div className="format-button-report-comment" >
+                  <button className="button-report-comment">
+                     <h4>รายงาน</h4>
                     </button>
                 </div>
               </div>

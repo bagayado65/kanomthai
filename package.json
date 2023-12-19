@@ -9,6 +9,7 @@
     "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",
     "date-fns": "^2.30.0",
+    "express-fileupload": "^1.4.3",
     "jquery": "^3.7.1",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",

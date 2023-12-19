@@ -460,11 +460,80 @@ class PostBoard extends React.Component {
                   <hr></hr>
                   <div className="comment-conten">
                     <button
-                      id={"i_like" + e.post_id}
-                      className="likebtn"
-                      onClick={this.send_Like}
-                      value={e.post_id}
+                      className="componentbtn"
+                      onClick={this._hiddenDisplay}
                     >
+                      <i id="comment" className="fas fa-comment" /> Component
+                    </button>
+                  </div>
+                  <hr></hr>
+                </div>
+              </div>
+            );
+          })}
+          {data.profile_kanomthai.map((pf) => {
+            return (
+              <div className="footed-title">
+                {" "}
+                {/*หน่าโพสต์*/}
+                <div className="title-post">
+                  <div className="avtars">
+                    <Avatar name={pf.nick_name} round="180px" size="60" />
+                  </div>
+                  <div className="namespacs">
+                    <h4 className="namespacs-nickname">{pf.tag_name}</h4>
+                    <span className="namespacs-name">{pf.name}</span>
+                  </div>
+                  <Popup
+                    trigger={
+                      <div className="button-profile">
+                        <button>
+                          ...
+                          <i className="fas fa-caret-down" />
+                        </button>
+                      </div>
+                    }
+                    position="bottom center"
+                  >
+                    <div className="popup-profile">
+                      <div className="popup-profile-btn">
+                        <Link id="stylelink" to="/profile">
+                          ข้อมูลบัญชี
+                        </Link>
+                      </div>
+                      <div className="popup-profile-btn">
+                        <button>ออกจากระบบ</button>
+                      </div>
+                      <Outlet />
+                    </div>
+                  </Popup>
+                  {/* <div class='button-profile'><button>...<i class="fas fa-caret-down" /></button></div> */}
+                </div>
+                <hr></hr>
+                <div className="conten-center">
+                  <div className="time-conten">
+                    <i className="fas fa-clock" />
+                    <span>{pf.timeline}</span>
+                  </div>
+                  <div class="title-conten">
+                    <h3>{pf.title}</h3>
+                  </div>
+                  <div className="text-conten">
+                    {/* {console.log(pf.text_conten.toString().length)} */}
+                    {pf.text_conten.map((lt, i) => (
+                      <p key={i}>{lt}</p>
+                    ))}
+                  </div>
+                  <div className="img-content">
+                    {pf.imgc ? (
+                      <img src={pf.imgsrc} alt={pf.imgc} />
+                    ) : (
+                      <p>maime</p>
+                    )}
+                  </div>
+                  <hr></hr>
+                  <div className="comment-conten">
+                    <button className="likebtn">
                       <i id="like" className="fas fa-heart" />
                       Like
                     </button>
