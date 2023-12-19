@@ -19,10 +19,10 @@ const BlobImage = ({ blobData }) => {
     return () => URL.revokeObjectURL(blobUrl);
   }, [blobData]);
   return (
-    <div className="profile-post">
+    <div className="p-post">
       {imageSrc && (
         <img
-          className="border-img-post"
+          className="b-r-image"
           src={imageSrc}
           width="60"
           height="60"

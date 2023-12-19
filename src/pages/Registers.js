@@ -41,6 +41,7 @@ function Registers() {
             timer: 1500
           });
         }
+        
         window.location.reload(true);
 
         // Redirect or update state as needed

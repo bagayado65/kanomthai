@@ -1,13 +1,14 @@
 import React from "react";
 import "./PostBoardStyle.css";
-import Avatar from "react-avatar";
+// import Avatar from "react-avatar";
 import BlobImage from "./BlobImage ";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import data from "./data/PostBoardData.json";
 import moment from "moment";
 import axios from "axios";
+import $ from "jquery";
 import ReadMore from "../components/ReadMore";
 import Blobimg from "./Blobimg";
 import Swal from "sweetalert2";
@@ -15,8 +16,10 @@ class PostBoard extends React.Component {
   constructor() {
     super();
     this.state = {
+      defaultAvatar: "./pngs/user.png",
       host_url: "http://localhost:8800",
       auth_id: null,
+      user_selected_main: [],
       user_selected: [],
       data_long_post: [],
       showAndHide: false,
@@ -28,8 +31,14 @@ class PostBoard extends React.Component {
       select_catagory: null,
       select_info_areas: null,
       picture_post: null,
+      fileName: "",
+      data_Comment: null,
+      input_Comment: "",
+      like_true: false,
+      model_check_report: false,
+      mr_report: "",
     };
-    this._hiddenDisplay = this._hiddenDisplay.bind(this);
+    // this._hiddenDisplay = this._hiddenDisplay.bind(this);
     this.hiddenFileInput = React.createRef();
   }
   componentDidMount() {
@@ -52,7 +61,10 @@ class PostBoard extends React.Component {
         .then((e) => {
           console.log("Login แล้ว!");
           axios.get(this.state.host_url + "/getShowPost").then((res) => {
-            this.setState({ data_long_post: res.data });
+            this.setState({
+              data_long_post: res.data,
+              user_selected_main: res.data,
+            });
             console.log(this.state.data_long_post);
           });
         })
@@ -70,25 +82,125 @@ class PostBoard extends React.Component {
     } catch (error) {
       console.log("ค้นหาข้อมูลไม่เจอ", error);
     }
+    try {
+      axios.get(this.state.host_url + "/getShowComment").then((res) => {
+        this.setState({ data_Comment: res.data });
+        console.log(this.state.data_Comment);
+      });
+    } catch (error) {
+      console.log("ค้นหาข้อมูลไม่เจอ", error);
+    }
   }
-   NewlineText = (props) => {
+  NewlineText = (props) => {
     const text = props;
-    const newText = text.split('\n').map(str => <p>{str}</p>);
-    
+    const newText = text.split("\n").map((str) => <p>{str}</p>);
+
     return newText;
-  }
-  
-  _hiddenDisplay() {
+  };
+  model_check_creport = () => {
+    this.setState({ model_check_report: !this.state.model_check_report });
+    console.log("true");
+  };
+  // search option
+  search_option = (e) => {
+    var a = $("#category option:selected").text();
+    // console.log(a);
+    // console.log(this.state.user_selected_main);
+    // this.state.user_selected_main.map((e) => {
+    //   return console.log(e.category_thai_dessert);
+    // })
+    if (this.state.data_long_post.length > 0) {
+      this.setState({ data_long_post: [] });
+    }
+    this.state.user_selected_main
+      .filter((e) => e.category_thai_dessert === a)
+      .map((e, i) => {
+        return this.setState((p) => ({
+          data_long_post: [...p.data_long_post, e],
+        }));
+      });
+    // console.log(this.state.data_long_post);
+  };
+  search_input = (e) => {
+    var event = e.target.value;
+    console.log(this.state.data_long_post);
+    if (this.state.data_long_post.length > 0) {
+      this.setState({ data_long_post: [] });
+    }
+    this.state.user_selected_main
+      .filter((e) => e.post_info.includes(event))
+      .map((e, i) => {
+        return this.setState((p) => ({
+          data_long_post: [...p.data_long_post, e],
+        }));
+      });
+  };
+  send_Like = (e) => {
+    const user_id = this.state.user_selected[0];
+    const user_like = user_id.user_id;
+    const post_id = e.target.value;
+    const formData = new FormData();
+    formData.append("post_id", e.target.value);
+    console.log(e.target.value);
+    formData.append("user_like", user_id.user_id);
+    if (e.target.className === "likebtn") {
+      $("#" + e.target.id).removeClass("likebtn");
+      $("#" + e.target.id).addClass("likebtned");
+      axios.post(this.state.host_url + "/addLike", { post_id, user_like });
+    } else if (e.target.className === "likebtned") {
+      $("#" + e.target.id).removeClass("likebtned");
+      $("#" + e.target.id).addClass("likebtn");
+      // axios.delete(this.state.host_url+"/removeLike",{post_id,user_like});
+    }
+  };
+  _hiddenDisplay = () => {
     this.setState({ showAndHide: !this.state.showAndHide });
-  }
+    // console.log(this.state.data_Comment);
+  };
   //popup post
   model_check = () => {
     this.setState({ box_model: !this.state.box_model });
-    this.setState({ select_info_areas : null });
-    this.setState({ selectedFile : null });
+    this.setState({ select_info_areas: null });
+    this.setState({ selectedFile: null });
   };
   handleClick = (event) => {
     this.hiddenFileInput.current.click();
+  };
+  input_to_comment = (event) => {
+    this.setState({ input_Comment: event.target.value });
+    // console.log(this.state.input_Comment)
+  };
+  send_comment = (e) => {
+    // console.log(e.target.id);
+    const user_id = this.state.user_selected[0];
+    // console.log(user_id.user_id);
+    const dateTime = moment(Date.now()).format();
+    // console.log(this.state.input_Comment);
+    // console.log(dateTime);
+    const formData = new FormData();
+    formData.append("user_id", user_id.user_id);
+    formData.append("post_id", e.target.id);
+    formData.append("message", this.state.input_Comment);
+    formData.append("comment_date_time", dateTime);
+    axios.post(this.state.host_url + "/insertComment", formData).then((e) => {
+      Swal.fire({
+        icon: "success",
+        title: "บันทึกสำเร็จ!!",
+        showConfirmButton: false,
+        timer: 1000,
+      })
+        .then((e) => {
+          window.location.reload(true);
+        })
+        .catch((e) => {
+          Swal.fire({
+            icon: "error",
+            title: "ส่งข้อมูลไม่สำเร็จ!!",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        });
+    });
   };
   submitData = (e) => {
     switch (e.target.id) {
@@ -226,7 +338,7 @@ class PostBoard extends React.Component {
         }
       }
     }
-    this.setState({ select_info_areas : null });
+    this.setState({ select_info_areas: null });
   };
   countLebgth = (event) => {
     this.setState({
@@ -238,7 +350,8 @@ class PostBoard extends React.Component {
   };
   handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-
+    // alert("filename"+ event.target.files[0].name)
+    $("#showNameFile").text(event.target.files[0].name);
     // Update the state with the selected file
     this.setState({ selectedFile: fileUploaded });
 
@@ -253,7 +366,11 @@ class PostBoard extends React.Component {
         {" "}
         {/*หน่ากรอกข้อมูลโพสต์*/}
         <div className="i-center left">
-          <select id="category" className="select-style">
+          <select
+            id="category"
+            className="select-style"
+            onChange={this.search_option}
+          >
             <option value="noSelect" selected>
               เลือกประเภทขนมไทย...
             </option>
@@ -304,12 +421,10 @@ class PostBoard extends React.Component {
                     position="bottom center"
                   >
                     <div className="popup-profile">
-                      {/* <div className="popup-profile-btn">
-                        <Link id="stylelink" to="/profile">
-                          Report
-                        </Link>
-                      </div> */}
-                      <div className="popup-profile-btn">
+                      <div
+                        onClick={this.model_check_creport}
+                        className="popup-profile-btn"
+                      >
                         <button>Report</button>
                       </div>
                       <Outlet />
@@ -322,27 +437,28 @@ class PostBoard extends React.Component {
                     <i className="fas fa-clock" />
                     <span>
                       {" "}
-                      {moment(e.post_date_time).startOf('hour').fromNow()}
+                      {moment(e.post_date_time).startOf("hour").fromNow()}
                     </span>
                   </div>
                   <div class="title-conten">
                     {/* <h3>{e.category_thai_dessert}</h3> */}
                   </div>
                   <div className="text-conten">
-                    <ReadMore text={this.NewlineText(e.post_info)} maxLength={100} />
+                    <ReadMore
+                      text={this.NewlineText(e.post_info)}
+                      maxLength={100}
+                    />
                   </div>
                   <div className="img-content">
                     {/* {pf.imgc && (
                       <img src={pf.imgsrc} alt={pf.imgc} />
                     )} */}
-                    {e.post_image ? <Blobimg blobData={e.post_image.data} /> : null }
+                    {e.post_image ? (
+                      <Blobimg blobData={e.post_image.data} />
+                    ) : null}
                   </div>
                   <hr></hr>
                   <div className="comment-conten">
-                    <button className="likebtn">
-                      <i id="like" className="fas fa-heart" />
-                      Like
-                    </button>
                     <button
                       className="componentbtn"
                       onClick={this._hiddenDisplay}
@@ -382,7 +498,7 @@ class PostBoard extends React.Component {
                     <div className="popup-profile">
                       <div className="popup-profile-btn">
                         <Link id="stylelink" to="/profile">
-                          รายงาน
+                          ข้อมูลบัญชี
                         </Link>
                       </div>
                       <div className="popup-profile-btn">
@@ -425,38 +541,105 @@ class PostBoard extends React.Component {
                       className="componentbtn"
                       onClick={this._hiddenDisplay}
                     >
-                      <i id="comment" className="fas fa-comment" /> Component
+                      <i id="comment" className="fas fa-comment" /> Comment
                     </button>
                   </div>
                   <hr></hr>
                   {showAndHide && (
                     <div className="comment-use">
                       <div className="user-comment">
-                        {/* <span className="text-comment"></span> 
-                                            <Avatar name={pf.commnet_User.name} round="180px" size="30"/>*/}
-                        {console.log(Object.keys(pf.commnet_User).length)}
-                        {Object.keys(pf.commnet_User).length < 0 ? (
-                          <span>ไม่มีคอมเม้น</span>
-                        ) : (
-                          <div>
-                            {pf.commnet_User.map((e) => {
-                              return (
+                        {this.state.data_Comment.map((pq) => {
+                          return (
+                            <div>
+                              {pq.post_id === e.post_id && (
                                 <div>
-                                  <Avatar
-                                    name={e.name}
-                                    round="180px"
-                                    size="30"
-                                  />
-                                  <span className="text-comment">
-                                    {e.comment}
+                                  {pq.image ? (
+                                    <Popup
+                                      trigger={
+                                        <div className="button-profile">
+                                          <BlobImage blobData={pq.image.data} />
+                                        </div>
+                                      }
+                                      position="bottom left"
+                                    >
+                                      <div className="popup-profile">
+                                        <div
+                                          onClick={this.model_check_creport}
+                                          className="popup-profile-btn"
+                                        >
+                                          <button>Report</button>
+                                        </div>
+                                        <Outlet />
+                                      </div>
+                                    </Popup>
+                                  ) : (
+                                    <Popup
+                                      trigger={
+                                        <div className="button-profile">
+                                          <img
+                                            src={this.state.defaultAvatar}
+                                            alt="defultAvtar"
+                                            style={{
+                                              width: "60px",
+                                              height: "60px",
+                                            }}
+                                          />
+                                        </div>
+                                      }
+                                      position="bottom left"
+                                    >
+                                      <div className="popup-profile">
+                                        <div
+                                          onClick={this.model_check_creport}
+                                          className="popup-profile-btn"
+                                        >
+                                          <button>Report</button>
+                                        </div>
+                                        <Outlet />
+                                      </div>
+                                    </Popup>
+                                  )}
+                                  <span style={{ paddingLeft: "5px" }}>
+                                    @{pq.username}{" "}
+                                    <span
+                                      style={{
+                                        paddingLeft: "10px",
+                                        color: "gray",
+                                      }}
+                                    >
+                                      <i
+                                        className="fas fa-clock"
+                                        style={{ paddingRight: "5px" }}
+                                      />
+                                      {moment(pq.comment_date_time)
+                                        .startOf("hour")
+                                        .fromNow()}
+                                    </span>
                                   </span>
+                                  <br></br>
+                                  {pq.message}
                                 </div>
-                              );
-                            })}
-                          </div>
-                        )}
+                              )}
+                            </div>
+                          );
+                        })}
+                        <div className="box-comment">
+                          <input
+                            className="input-comment"
+                            type="text"
+                            onChange={this.input_to_comment}
+                          />
+                          <button
+                            id={e.post_id}
+                            className="send-comment"
+                            onClick={this.send_comment}
+                          >
+                            ส่ง
+                          </button>
+                        </div>
                       </div>
                     </div>
+                    //display
                   )}
                 </div>
               </div>
@@ -466,7 +649,11 @@ class PostBoard extends React.Component {
         </div>
         <div class="i-center">
           <div className="i-search">
-            <input className="i-input-search" placeholder="Search"></input>
+            <input
+              className="i-input-search"
+              placeholder="Search"
+              onChange={this.search_input}
+            ></input>
             <i class="fas fa-search"></i>
           </div>
           {data.img_advert.map((imc) => {
@@ -552,6 +739,7 @@ class PostBoard extends React.Component {
                       style={{ display: "none" }}
                       onChange={this.handleChange}
                     />
+                    <p id="showNameFile">{this.fileName}</p>
                   </div>
                 </div>
 
@@ -562,6 +750,35 @@ class PostBoard extends React.Component {
                     onClick={this.submitDataPost}
                   >
                     <h4>แชร์</h4>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="Reserve-space-report-post">
+          {this.state.model_check_report === true && (
+            <div className="background-shadow-report-post">
+              <div className="Model-popup">
+                <i
+                  className="back-del-report-post fa-solid fa-xmark"
+                  onClick={this.model_check_creport}
+                />
+                <div className="text-topin-report-post ">
+                  <h2>รายงานเนื้อหาที่ไม่เหมาะสม</h2>
+                </div>
+                <div className="format-report-topic-post">
+                  <select className="report-post-option-style">
+                    <option value="">รายงาน</option>
+                    <option value="">รูปภาพไม่เหมาะสม</option>
+                    <option value="">เนื้อหาไม่เหมาะสม</option>
+                    <option value="">เนื้อหาและรูปภาพไม่เหมาะสม</option>
+                  </select>
+                </div>
+
+                <div className="format-button-report-post">
+                  <button className="button-report-post">
+                    <h4>รายงาน</h4>
                   </button>
                 </div>
               </div>
