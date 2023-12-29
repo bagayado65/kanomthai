@@ -20,7 +20,7 @@ class BulletinBoard extends React.Component {
         </div>
 
         <div class="Bulletin-grid-container ">
-          <div class="Bulletin-card">
+          {/* <div class="Bulletin-card">
             <img
               src="https://img.pptvhd36.com/health/thumbor/2022/12/15/cusArticle-05a1235.avif"
               class="Bulletin-image  "
@@ -43,7 +43,7 @@ class BulletinBoard extends React.Component {
                 <button class=" Bulletin-button "> อ่านเพิ่มเติม </button>
               </Link>
             </div>
-          </div>
+          </div> */}
           <div class="Bulletin-card">
             <img
               src="https://static.cordonbleu.edu/Files/MediaFile/77184.jpg"
